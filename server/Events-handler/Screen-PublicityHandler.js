@@ -29,5 +29,9 @@ const ExitHandler = (socket, db, io) => {
 
 module.exports = {
     CodeQrHandler,
-  
+    QuestionHandler,
+    CheckupHandler,
+    GameHandler,
+    ActionHandler,
+    ExitHandler  
 };

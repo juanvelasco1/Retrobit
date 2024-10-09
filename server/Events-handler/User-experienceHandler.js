@@ -34,4 +34,9 @@ const RewardHandler = (socket, db, io) => {
 module.exports = {
   JoinGameHandler,
   CreateUserHandler,
+  AnswerOptionsHandler,
+  StartGameHandler,
+  ActionPulseHandler,
+  VictoryHandler,
+  RewardHandler
 };
