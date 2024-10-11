@@ -4,8 +4,8 @@ export default function renderScreen5() {
   const app = document.getElementById("app");
   app.innerHTML = `
         <h1>Screen 5</h1>
-        <button onclick="arrowUp()">&#9650;</button> 
-        <button onclick="arrowDown()">&#9660;</button>
+        <button id="arrowUp" onclick="arrowUp()">&#9650;</button> 
+        <button id="arrowDown" onclick="arrowDown()">&#9660;</button>
      
     `;
     
@@ -19,8 +19,13 @@ export default function renderScreen5() {
             }
         }
 
-  document.getElementById("goToScreen1").addEventListener("click", () => {
-    router.navigateTo("/");
-    socket.emit("event2");
-  });
+        document.getElementById("arrowUp").addEventListener("click", () => {
+          console.log("Flecha arriba seleccionada");
+          socket.emit("arrowAction", { direction: "up" }); // Enviar evento al servidor con la dirección "up"
+      });
+  
+      document.getElementById("arrowDown").addEventListener("click", () => {
+          console.log("Flecha abajo seleccionada");
+          socket.emit("arrowAction", { direction: "down" }); // Enviar evento al servidor con la dirección "down"
+      });
 }

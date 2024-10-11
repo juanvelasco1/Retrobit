@@ -4,9 +4,9 @@ export default function renderScreen2() {
   const app = document.getElementById("app");
   app.innerHTML = `
         <h1>Screen 2</h1>
-        <button onclick="signIn()">Sign in</button>
-        <button onclick="start()">Start</button>
-        <button onclick="menu()">Menu</button>
+        <button id="signIn" onclick="signIn()">Sign in</button>
+        <button id="start" onclick="start()">Start</button>
+        
     `;
 
   async function requestListOfUsers() {
@@ -25,18 +25,18 @@ export default function renderScreen2() {
   }
 
   document
-    .getElementById("requestButton")
-    .addEventListener("click", async () => {
-      const listUsers = await requestListOfUsers();
-      console.log(listUsers);
-    });
+    // .getElementById("requestButton")
+    // .addEventListener("click", async () => {
+    //   const listUsers = await requestListOfUsers();
+    //   console.log(listUsers);
+    // });
 
-  document.getElementById("goToScreen1").addEventListener("click", () => {
+  document.getElementById("signIn").addEventListener("click", () => {
     router.navigateTo("/");
     socket.emit("event2");
   });
 
-  document.getElementById("goToScreen3").addEventListener("click", () => {
+  document.getElementById("start").addEventListener("click", () => {
     router.navigateTo("/screen3");
   });
 }

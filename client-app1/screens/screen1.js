@@ -6,15 +6,30 @@ export default function renderScreen1() {
         <h1>Screen 1</h1>       
         <input type="text" name="nickname" placeholder="Nickname" required>
         <input type="email" name="email" placeholder="Email" required>
-        <button type="submit">Go</button>
+        <button id="Go" type="submit">Go</button>
     `;
 
-  document.getElementById("emitButton").addEventListener("click", () => {
-    console.log("emited");
-    socket.emit("event1", { message: "Hello from About page" });
-  });
+    document.emitButton.addEventListener("click"), () => {
+      // Obtener los valores de los campos de entrada
+      const nickname = nicknameInput.value;
+      const email = emailInput.value;
 
-  document.getElementById("goToScreen2").addEventListener("click", () => {
+      // Verificar si ambos campos están llenos
+      if (nickname && email) {
+          // Imprimir en consola para confirmar
+          console.log("Datos enviados:", { nickname, email });
+
+          // Emitir el evento a través de WebSocket
+          socket.emit("event1", { nickname, email });
+
+          nicknameInput.value = "";
+          emailInput.value = "";
+      } else {
+          alert("Por favor, rellena ambos campos.");
+      }
+  }
+
+  document.getElementById("Go").addEventListener("click", () => {
     router.navigateTo("/screen2");
   });
 }

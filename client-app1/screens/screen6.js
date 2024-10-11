@@ -22,7 +22,7 @@ export default function renderScreen6() {
         </div>
 
         <div class="button-container">
-            <button class="go-button">Go</button>
+            <button id="goButton">Go</button>
         </div>
     </div>
      
@@ -30,16 +30,9 @@ export default function renderScreen6() {
     
     const counterElement = document.getElementById('counter');
 
-        function incrementCounter() {
-            if (counterValue < 100) {
-                counterValue++;
-                counterElement.textContent = counterValue;
-                setTimeout(incrementCounter, 100); //0-100
-            }
-        }
-
-  document.getElementById("goToScreen1").addEventListener("click", () => {
-    router.navigateTo("/");
-    socket.emit("event2");
+    document.getElementById("goButton").addEventListener("click", () => {
+      console.log("Botón Go presionado");
+      socket.emit("couponUsed", { couponCode: "AFU-289" }); // Enviar el código del cupón al servidor
   });
+  
 }
