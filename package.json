@@ -1,11 +1,11 @@
 {
   "name": "server-practice",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-server": "nodemon server/server.js",
-    "start-client": "live-server ./client --port=3000"
+    "start-server": "nodemon server/server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,5 @@
     "socket.io": "^4.7.5",
     "vanilla-router": "^1.2.0",
     "socket.io-client": "^4.0.0"
-  },
-  "description": ""
+  }
 }
