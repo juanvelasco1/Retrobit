@@ -3,10 +3,10 @@ import { router, socket } from "../routes.js";
 export default function renderScreen1() {
   const app = document.getElementById("app");
   app.innerHTML = `
-        <h1>Screen 1</h1>
-        <p>This is the Screen 1</p>
-        <button id="emitButton">Emit Event</button>
-        <button id="goToScreen2">Go to Screen 2</button>
+        <h1>Screen 1</h1>       
+        <input type="text" name="nickname" placeholder="Nickname" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Go</button>
     `;
 
   document.getElementById("emitButton").addEventListener("click", () => {

@@ -1,9 +1,9 @@
 import { router, socket } from "../routes.js";
 
-export default function renderScreen3() {
+export default function renderScreen4() {
   const app = document.getElementById("app");
   app.innerHTML = `
-        <h1>Screen 3</h1>
+        <h1>Screen 4</h1>
         <p>QUESTION 1</p>
         <p>QUESTION</p>
         <button onclick="optionA()">A</button>
