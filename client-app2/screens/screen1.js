@@ -1,3 +1,5 @@
+//Pantalla grande muestra el QR.
+
 import { router, socket } from "../routes.js";
 
 export default function renderScreen1() {
