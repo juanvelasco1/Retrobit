@@ -1,6 +1,5 @@
 // eventsExampleHandlers.js
 
-// const { JoinGameHandler, CreateUserHandler,AnswerOptionsHandler ,StartGameHandler ,ActionPulseHandler ,VictoryHandler ,DefeatHandler ,RewardHandler, CodeQrHandler,QuestionHandler,CheckupHandler, ExitHandler   } = require("../utils/helpers");
 
 // Assuming db and io are required or passed in some way to be accessible
 const JoinGameHandler = (socket, db, io) => {
@@ -50,6 +49,9 @@ const CheckupHandler = (socket, db, io) => {
 const ExitHandler = (socket, db, io) => {
   return () => {};
 };
+const StartTriviaHandler = (socket, db, io) => {
+  return () => {};
+};
 
 module.exports = {
   JoinGameHandler,
@@ -63,5 +65,6 @@ module.exports = {
   CodeQrHandler,
   QuestionHandler,
   CheckupHandler,
-  ExitHandler
+  ExitHandler,
+  StartTriviaHandler
 };

@@ -6,8 +6,8 @@ const { UserEvent } = require("../Events/User-experience")
 
 const handleEvents = (socket, io) => {
   // exampleEvent(socket, io)
-  ScreenEvent(socket, io)
-  ServerEvent(socket, io)
+  //ScreenEvent(socket, io)
+  //ServerEvent(socket, io)
   UserEvent(socket, io)
 }
 

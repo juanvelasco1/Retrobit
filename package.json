@@ -16,15 +16,11 @@
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "live-server": "^1.2.2",
+    "qrious": "^4.0.2",
     "serve": "^14.2.3",
     "socket.io": "^4.7.5",
-<<<<<<< HEAD
-    "vanilla-router": "^1.2.0",
-    "socket.io-client": "^4.0.0"
-=======
     "socket.io-client": "^4.0.0",
-    "vanilla-router": "^1.2.8"
->>>>>>> abf236eebfa50be520286d8c778e4e5d08adf356
+    "vanilla-router": "^1.2.0"
   },
   "description": ""
 }

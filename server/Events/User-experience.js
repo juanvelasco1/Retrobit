@@ -1,5 +1,5 @@
 const db = require("../db");
-const { CreateUserHandler, JoinGameHandler,AnswerOptionsHandler ,StartGameHandler ,ActionPulseHandler ,DefeatHandler ,VictoryHandler ,RewardHandler, CodeQrHandler,QuestionHandler,CheckupHandler,ExitHandler } = require("../Events-handler/User-experienceHandler");
+ const { CreateUserHandler, JoinGameHandler,StartTriviaHandler,AnswerOptionsHandler ,StartGameHandler ,ActionPulseHandler ,DefeatHandler ,VictoryHandler ,RewardHandler, CodeQrHandler,QuestionHandler,CheckupHandler,ExitHandler } = require("../Events-handler/User-experienceHandler");
 
 const UserEvent = (socket, io) => {
   socket.on("JoinGame", JoinGameHandler(socket, db, io));
@@ -14,7 +14,7 @@ const UserEvent = (socket, io) => {
   socket.on("Question",QuestionHandler(socket, db, io));
   socket.on("Checkup",CheckupHandler(socket, db, io));
   socket.on("Exit",ExitHandler(socket, db, io));
-
+  socket.on("StartTrivia",StartTriviaHandler(socket, db, io));
 };
 
 module.exports = { UserEvent };
