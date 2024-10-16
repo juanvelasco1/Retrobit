@@ -1,3 +1,4 @@
+
 import renderScreen1 from "./screens/screen1.js";
 import renderScreen2 from "./screens/screen2.js";
 import socket from "./socket.js";
@@ -20,7 +21,7 @@ router.add("/", async () => {
   renderScreen1();
 });
 
-router.add("/screen2", async () => {
+router.add("/screen0", async () => {
   clearScripts();
   renderScreen2();
 });

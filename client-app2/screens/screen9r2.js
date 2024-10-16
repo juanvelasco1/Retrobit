@@ -1,0 +1,2 @@
+//RESPUESTA CORRECTA: La respuesta correcta es Link. Es un joven héroe que a menudo se embarca para rescatar a la princesa Zelda y derrotar al villano Ganon, entre otros enemigos.
+//si sale respuesta incorrecta:La respuesta correcta es Link. Es un joven héroe que a menudo se embarca para rescatar a la princesa Zelda y derrotar al villano Ganon, entre otros enemigos.

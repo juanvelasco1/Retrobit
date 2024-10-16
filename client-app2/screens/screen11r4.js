@@ -1,0 +1,2 @@
+//RESPUESTA CORRECTA: El reino champiñón es el mundo ficticio donde se desarrollan la mayoría de los juegos donde Peach es la gobernante. Es un lugar colorido con diferentes paisajes, como praderas, montañas, castillos y océanos.
+//si sale respuesta incorrecta: El reino champiñón es el mundo ficticio donde se desarrollan la mayoría de los juegos donde Peach es la gobernante. Es un lugar colorido con diferentes paisajes, como praderas, montañas, castillos y océanos.
