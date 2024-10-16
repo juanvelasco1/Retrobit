@@ -9,27 +9,28 @@ export default function renderScreen1() {
         <button id="Go" type="submit">Go</button>
     `;
 
-    document.emitButton.addEventListener("click"), () => {
-      // Obtener los valores de los campos de entrada
-      const nickname = nicknameInput.value;
-      const email = emailInput.value;
+  //   document.emitButton.addEventListener("click"), () => {
+  //     // Obtener los valores de los campos de entrada
+  //     const nickname = nicknameInput.value;
+  //     const email = emailInput.value;
 
-      // Verificar si ambos campos están llenos
-      if (nickname && email) {
-          // Imprimir en consola para confirmar
-          console.log("Datos enviados:", { nickname, email });
+  //     // Verificar si ambos campos están llenos
+  //     if (nickname && email) {
+  //         // Imprimir en consola para confirmar
+  //         console.log("Datos enviados:", { nickname, email });
 
-          // Emitir el evento a través de WebSocket
-          socket.emit("event1", { nickname, email });
+  //         // Emitir el evento a través de WebSocket
+  //         socket.emit("event1", { nickname, email });
 
-          nicknameInput.value = "";
-          emailInput.value = "";
-      } else {
-          alert("Por favor, rellena ambos campos.");
-      }
-  }
+  //         nicknameInput.value = "";
+  //         emailInput.value = "";
+  //     } else {
+  //         alert("Por favor, rellena ambos campos.");
+  //     }
+  // }
 
   document.getElementById("Go").addEventListener("click", () => {
+    console.log("Go")
     router.navigateTo("/screen2");
   });
 }
