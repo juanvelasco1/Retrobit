@@ -1,38 +1,78 @@
 import { router, socket } from "../routes.js";
 
-export default function renderScreen6() {
+export default function renderClientApp1() {
   const app = document.getElementById("app");
   app.innerHTML = `
-        <h1>Screen 6</h1>
-     <div class="coupon-container">
-        <div class="coupon-title">Coupon</div>
+  <style>
+.bg-container {
+    background-image: url(imgs/mobile-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 100vh;
+}
 
-        <div class="qr-code">
-            <img src="your-qr-code-image.png" alt="QR Code" width="150">
-        </div>
+.logo{
+  margin: 0 auto;
+  width: 80%;
+}
 
-        <div class="coupon-code">AFU-289</div>
+.register-inputs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        <div class="discount">
-            30% <span>OFF</span>
-        </div>
+.register-inputs > input{
+    width: 302px;
+    font-size: 18px;
+    margin: 10px 0px;
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+}
 
-        <div class="coupon-description">
-            With this coupon you can buy products on our official website.
-        </div>
+button{
+  border: solid 7px red;
+    border-radius: 50px;
+    margin: 0 auto;
+    width: fit-content;
+    font-size: 56px;
+    padding: 30px;
+    font-weight: 700;
+    font-family: arial;
+    background-color: white;
+}
 
-        <div class="button-container">
-            <button id="goButton">Go</button>
-        </div>
-    </div>
-     
-    `;
-    
-    const counterElement = document.getElementById('counter');
+h1 {
+  color: white;
+  font-family: arial;
+  text-align: center;
+}
+</style>
+<div class= 'bg-container'>
+  <img class='logo' src='imgs/mobile-logo.png'>
+    <button id="saltar" type="submit">Saltar</button>
+</div>
+  `;
 
-    document.getElementById("goButton").addEventListener("click", () => {
-      console.log("Botón Go presionado");
-      socket.emit("couponUsed", { couponCode: "AFU-289" }); // Enviar el código del cupón al servidor
-  });
+
+socket.off("DefeatClient")
+document.getElementById("saltar").addEventListener("touchstart", () => {
+  console.log('touch');
   
+  socket.emit("ActionPulse", "saltar");
+});
+
+
+socket.off("DefeatClient")
+  socket.on("DefeatClient", (data) => {
+    router.navigateTo("/screen5"); // Navega a la siguiente pantalla
+    })
 }

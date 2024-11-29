@@ -1,2 +1,0 @@
-//RESPUESTA CORRECTA: La primera consola de NINTENDO fue la COLOR TV GAME la cual fue desarrollada en 1977 que marcó el inicio de la incursión de NINTENDO en la industriade los videojuegos
-//si sale respuesta incorrecta: La primera consola de NINTENDO fue la COLOR TV GAME la cual fue desarrollada en 1977 que marcó el inicio de la incursión de NINTENDO en la industria de los videojuegos 

@@ -1,35 +1,158 @@
 import { router, socket } from "../routes.js";
 
-export default function renderScreen3() {
+export default function renderClientApp1() {
   const app = document.getElementById("app");
+  let score = 0;
+
   app.innerHTML = `
-        <h1>Screen 3</h1>
-        <p>QUESTION 1</p>
-        <p>QUESTION</p>
-        <button id="optionA" onclick="optionA()">A</button>
-        <button id="optionB" onclick="optionB()">B</button>
-        <button id="optionC" onclick="optionC()">C</button>
-        <button id="optionD" onclick="optionD()">D</button>
-    `;
+  <style>
+    .button-container {
+      display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  background-color: #013C5D;
+  padding: 10px; 
+  height: calc( 100% - 100px );
+}
 
-    document.getElementById("optionA").addEventListener("click", () => {
-      console.log("Opción A seleccionada");
-      socket.emit("selectedOption", { option: "A" }); // Envía la opción "A" al servidor
-  });
+button {
+    font-size: 154px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: transparent;
+}
 
-  document.getElementById("optionB").addEventListener("click", () => {
-      console.log("Opción B seleccionada");
-      socket.emit("selectedOption", { option: "B" }); // Envía la opción "B" al servidor
-  });
+#option1 {
+  background-color: #EA2927;
+}
 
-  document.getElementById("optionC").addEventListener("click", () => {
-      console.log("Opción C seleccionada");
-      socket.emit("selectedOption", { option: "C" }); // Envía la opción "C" al servidor
-  });
+#option2 {
+  background-color: #3B9AFF;
+}
 
-  document.getElementById("optionD").addEventListener("click", () => {
-      console.log("Opción D seleccionada");
-      socket.emit("selectedOption", { option: "D" }); // Envía la opción "D" al servidor
-  });
-  
+#option3 {
+  background-color: #e5cd0c;
+}
+
+#option4 {
+  background-color: #10D000;
+}
+  </style>
+    <div class="button-container">
+  <button id="option1">▲</button>
+  <button id="option2">◆</button>
+  <button id="option3">●</button>
+  <button id="option4">■</button>
+</div>
+  `;
+
+  // Función para procesar la respuesta
+  function processAnswer(selectedOption) {
+    socket.emit("answer", selectedOption);
+    router.navigateTo("/screen4");  
+  }
+
+  let isTouched = false;
+let touchStartX = 0;
+let touchStartY = 0;
+
+document.getElementById("option1").addEventListener("touchstart", (event) => {
+  isTouched = true;
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+});
+
+document.getElementById("option1").addEventListener("touchend", (event) => {
+  if (isTouched) {
+    // Check if the touch has moved significantly
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchEndY = event.changedTouches[0].clientY;
+
+    const distanceX = Math.abs(touchEndX - touchStartX);
+    const distanceY = Math.abs(touchEndY - touchStartY);
+
+    if (distanceX < 10 && distanceY < 10) {
+      // Trigger the action only if the touch hasn't moved much
+      processAnswer("1");
+    }
+  }
+  isTouched = false;
+});
+
+document.getElementById("option2").addEventListener("touchstart", (event) => {
+  isTouched = true;
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+});
+
+document.getElementById("option2").addEventListener("touchend", (event) => {
+  if (isTouched) {
+    // Check if the touch has moved significantly
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchEndY = event.changedTouches[0].clientY;
+
+    const distanceX = Math.abs(touchEndX - touchStartX);
+    const distanceY = Math.abs(touchEndY - touchStartY);
+
+    if (distanceX < 10 && distanceY < 10) {
+      // Trigger the action only if the touch hasn't moved much
+      processAnswer("2");
+    }
+  }
+  isTouched = false;
+});
+
+document.getElementById("option3").addEventListener("touchstart", (event) => {
+  isTouched = true;
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+});
+
+document.getElementById("option3").addEventListener("touchend", (event) => {
+  if (isTouched) {
+    // Check if the touch has moved significantly
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchEndY = event.changedTouches[0].clientY;
+
+    const distanceX = Math.abs(touchEndX - touchStartX);
+    const distanceY = Math.abs(touchEndY - touchStartY);
+
+    if (distanceX < 10 && distanceY < 10) {
+      // Trigger the action only if the touch hasn't moved much
+      processAnswer("3");
+    }
+  }
+  isTouched = false;
+});
+
+document.getElementById("option4").addEventListener("touchstart", (event) => {
+  isTouched = true;
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+});
+
+document.getElementById("option4").addEventListener("touchend", (event) => {
+  if (isTouched) {
+    // Check if the touch has moved significantly
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchEndY = event.changedTouches[0].clientY;
+
+    const distanceX = Math.abs(touchEndX - touchStartX);
+    const distanceY = Math.abs(touchEndY - touchStartY);
+
+    if (distanceX < 10 && distanceY < 10) {
+      // Trigger the action only if the touch hasn't moved much
+      processAnswer("4");
+    }
+  }
+  isTouched = false;
+});
+
+socket.on("DefeatClient", (data) => {  
+  if (data.question > 5){
+    router.navigateTo("/screen5");    
+  }
+  })
+
 }

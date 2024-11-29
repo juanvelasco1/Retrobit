@@ -4,6 +4,7 @@ import renderScreen3 from "./screens/screen3.js";
 import renderScreen4 from "./screens/screen4.js";
 import renderScreen5 from "./screens/screen5.js";
 import renderScreen6 from "./screens/screen6.js";
+import renderScreen7 from "./screens/screen7.js";
 import socket from "./socket.js";
 
 const router = new Router({
@@ -49,6 +50,11 @@ router.add("/screen5", async () => {
 router.add("/screen6", async () => {
   clearScripts();
   renderScreen6();
+  socket.emit("correctAnswer", { message: "Correct screen displayed" });
+});
+router.add("/screen7", async () => {
+  clearScripts();
+  renderScreen7();
   socket.emit("correctAnswer", { message: "Correct screen displayed" });
 });
 

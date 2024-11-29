@@ -1,2 +1,0 @@
-//RESPUESTA CORRECTA: Kirby tiene la habilidad única de absorber sus enemigos y copiar sus poderes, lo que permite adaptarse a diferentes situaciones del juego.
-//si sale respuesta incorrecta: Kirby tiene la habilidad única de absorber sus enemigos y copiar sus poderes, lo que permite adaptarse a diferentes situaciones del juego.

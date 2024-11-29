@@ -1,15 +1,48 @@
 import { router, socket } from "../routes.js";
 
-export default function renderScreen2() {
+export default function renderScreen1() {
   const app = document.getElementById("app");
   app.innerHTML = `
-        <h1>Screen 2</h1>
-        <p>¡Bienvenido! Prepárate para poner a prueba tus conocimientos sobre el mundo de Nintendo. Responde correctamente y acumula puntos para ganar fantásticos premios. ¡Demuestra que eres un verdadero fanático de Nintendo! 
+        <style>
+.bg-container {
+    background-image: url(img/BG2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: auto;
+    width: 444px;
+    height: 683px;
+}
 
-¿Estás listo para comenzar?P</p>        
+#image-container {
+    width: 298px;
+    margin-top: 187px;
+    margin-left: 74px;
+}
+
+#image-container > img {
+    width: 100%;
+    border-radius: 11px;
+}
+</style>
+  <div class='bg-container'>
+    <div id="image-container"></div>
+  </div>
     `;
 
-  socket.on("returnScreen1", (data) => {
-    router.navigateTo("/");
+const imageContainer = document.getElementById("image-container");
+
+// URL de la imagen que deseas mostrar
+const imageUrl =
+  "img/screen1.png"; // Reemplaza esto con la URL de tu imagen
+
+// Crea una imagen y la añade al contenedor
+const img = document.createElement("img");
+img.src = imageUrl;
+img.alt = "Código QR para registrarse";
+imageContainer.appendChild(img);
+
+
+  socket.on("startTriviaClient", (data) => {
+    router.navigateTo("/screen3");
   });
 }

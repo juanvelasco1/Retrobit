@@ -1,26 +1,44 @@
-const { Server } = require("socket.io")
-const { handleEvents } = require("./Events")
+const { Server } = require("socket.io");
+const { handleEvents } = require("./Events");
 
-let io
+let io;
 
 const initSocket = (httpServer) => {
   io = new Server(httpServer, {
     path: "/real-time",
     cors: {
-      origin: "*", // Allow requests from any origin
+      origin: "*", // Permitir todas las solicitudes de origen cruzado
     },
-  }) // Creates a WebSocket server, using the same HTTP server as the Express app and listening on the /real-time path
+  });
 
   io.on("connection", (socket) => {
-    handleEvents(socket, io)
-  })
-}
+    console.log("Nuevo cliente conectado");
+
+    handleEvents(socket, io);
+
+    // Registro
+    socket.on("register", (username, email) => {
+      console.log("Llega registro a servidor:", username, email);
+    });
+
+    // Recibir respuesta del cliente 1 y reenviarla
+    socket.on("answer", (answer) => {
+      console.log(`Respuesta recibida del cliente 1: ${answer}`);
+      io.emit("answer", answer); // Reenvía la respuesta a todos los clientes
+    });
+
+    // Desconexión
+    socket.on("disconnect", () => {
+      console.log("Cliente desconectado");
+    });
+  });
+};
 
 const getIO = () => {
   if (!io) {
-    throw new Error("Socket.io not initialized!")
+    throw new Error("Socket.io not initialized!");
   }
-  return io
-}
+  return io;
+};
 
-module.exports = { initSocket, getIO }
+module.exports = { initSocket, getIO };

@@ -1,14 +1,13 @@
 //const { exampleEvent } = require("./exampleEvents")
-const { ScreenEvent } = require("../Events/Screen-Publicity")
-const { ServerEvent } = require("../Events/Server-Event")
-const { UserEvent } = require("../Events/User-experience")
+const { ScreenEvent } = require("./screen-publicity")
+const { ServerEvent } = require("./Server-Event")
+const { UserEvent } = require("./User-experience")
 
 
 const handleEvents = (socket, io) => {
-  // exampleEvent(socket, io)
-  //ScreenEvent(socket, io)
-  //ServerEvent(socket, io)
-  UserEvent(socket, io)
+  ScreenEvent(socket, io);
+  ServerEvent(socket, io)
+  UserEvent(socket, io);
 }
 
 module.exports = { handleEvents }

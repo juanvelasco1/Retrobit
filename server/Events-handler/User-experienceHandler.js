@@ -1,5 +1,7 @@
 // eventsExampleHandlers.js
 
+const { supabase } = require("../db");
+
 
 // Assuming db and io are required or passed in some way to be accessible
 const JoinGameHandler = (socket, db, io) => {
@@ -7,7 +9,9 @@ const JoinGameHandler = (socket, db, io) => {
 };
 
 const CreateUserHandler = (socket, db, io) => {
-  return () => {};
+  return async (userData) => {
+    io.emit('startTriviaClient', userData)
+  };
 };
 
 const AnswerOptionsHandler = (socket, db, io) => {
@@ -19,7 +23,9 @@ const StartGameHandler = (socket, db, io) => {
 };
 
 const ActionPulseHandler = (socket, db, io) => {
-  return () => {};
+  return () => {
+    io.emit('ActionPulseClient', 'saltar')
+  };
 };
 
 const VictoryHandler = (socket, db, io) => {
@@ -27,7 +33,11 @@ const VictoryHandler = (socket, db, io) => {
 };
 
 const DefeatHandler = (socket, db, io) => {
-  return () => {};
+  return (data) => {
+    console.log(data);
+    
+    io.emit('DefeatClient', data)
+  };
 };
 
 const RewardHandler = (socket, db, io) => {
